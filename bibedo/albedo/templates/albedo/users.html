@@ -1,0 +1,8 @@
+{% extends "albedo/base.html" %}
+{% block content %}
+{% if users %}
+{% for user in users %}
+<p> {{user.login}} <p>
+{% endfor %}
+{% endif%}
+{% endblock %}

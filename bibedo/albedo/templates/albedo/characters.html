@@ -1,0 +1,22 @@
+{% extends "albedo/base.html" %}
+{% block content %}
+{% if characters %}
+
+<select name="Оружие">
+<option value="">Любое</option>
+  <option value="Меч">Меч</option>
+  <option value="Лук">Лук</option>
+  <option value="Катализатор">Катализатор</option>
+  <option value="Двуручный меч">Двуручный меч</option>
+  <option value="Копьё">Копьё</option>
+</select>
+{% for character in characters %}
+<form action = "{{character.link}}">
+<button>{{character.name}}</button>
+</form>
+{% endfor %}
+<form action = "http://127.0.0.1:8000/albedo">
+<button>На главную</button>
+</form>
+{% endif %}
+{% endblock %}

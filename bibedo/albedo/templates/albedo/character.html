@@ -1,0 +1,12 @@
+{% extends "albedo/base.html" %}
+{% block content %}
+{% if character %}
+
+<p> {{character.name}} <p>
+<p> {{character.element}} {{character.weapon}}<p>
+<p> {{character.link}} <p>
+<form action = "http://127.0.0.1:8000/albedo/characters">
+<button>Назад</button>
+</form>
+{% endif%}
+{% endblock %}
