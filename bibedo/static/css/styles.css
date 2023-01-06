@@ -2,7 +2,7 @@ body {
   margin: 20px;
   font-family: Verdana, Helvetica, Arial;
 
-  background-image: url("background1.png");
+  background-image: url("/static/img/background_image.jpg");
   background-size: 100%, 100%;
 
 
@@ -77,3 +77,30 @@ button:hover{
   border-radius: 10px;
 }
 
+.navbar {
+  background-color: #205295;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.navbar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
