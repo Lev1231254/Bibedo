@@ -1,9 +1,17 @@
-{% extends "albedo/base.html" %}
-{% block content %}
-<form action = "http://127.0.0.1:8000/albedo/characters">
-<button>Персонажи</button>
-</form>
-<form action = "http://127.0.0.1:8000/albedo/weapon">
-<button>Оружие</button>
-</form>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="mainpage.css">
+    <title>Main </title>
+</head>
+<body>
+    {% extends "albedo/base.html" %}
+    {% block content%}
+    <div class="title">
+		<h1>Welcome to Bibedo!</h1>
+        <p>This website is made to make it easier to find builds of other people.</p>
+    </div>
+    {% endblock %}
+</body>
+</html>

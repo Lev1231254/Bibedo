@@ -1,0 +1,99 @@
+{% extends "albedo/base.html" %}
+{% block content %}
+{% if character %}
+{% if weapon %}
+<p>Создайте свой билд!</p>
+<p>{{character.name}} <p>
+<p>{{character.element}} {{character.weapon}}<p>
+
+<form action = "{% url 'albedo:addbuild' character.ename %}", method="post">
+{% csrf_token %}
+
+<p>Название билда:</p>
+<input type="text" name="bname">
+<p></p>
+
+<p>оружиe:</p>
+<select type="text" name="theweapon" id="theweapon">
+{% for aweapon in weapon %}
+  <option>{{aweapon.name}}</option>
+{% endfor %}
+</select>
+<p></p>
+
+<p>сет артефактов 1:</p>
+<select type="text" name="artiset1" id="artiset1">
+{% for art in arts %}
+  <option>{{art.name}}</option>
+{% endfor %}
+</select>
+<p></p>
+
+<p>сет артефактов 2:</p>
+<select type="text" name="artiset2" id="artiset2">
+{% for art in arts %}
+  <option>{{art.name}}</option>
+{% endfor %}
+</select>
+<p></p>
+
+<p>часы:</p>
+<select type="text" name="sands" id="sands">
+{% for char in sands %}
+  <option>{{char}}</option>
+{% endfor %}
+</select>
+<p></p>
+
+<p>кубок:</p>
+<select type="text" name="goblet" id="goblet">
+{% for char in goblet %}
+  <option>{{char}}</option>
+{% endfor %}
+</select>
+<p></p>
+
+<p>корона:</p>
+<select type="text" name="circlet" id="circlet">
+{% for char in circlet %}
+  <option>{{char}}</option>
+{% endfor %}
+</select>
+<p></p>
+
+<p>Первый союзник:</p>
+<select type="text" name="friend1" id="friend1">
+{% for friend in friends %}
+  <option>{{friend.name}}</option>
+{% endfor %}
+</select>
+<p></p>
+
+<p>Второй союзник:</p>
+<select type="text" name="friend2" id="friend2">
+{% for friend in friends %}
+  <option>{{friend.name}}</option>
+{% endfor %}
+</select>
+<p></p>
+
+<p>Третий союзник:</p>
+<select type="text" name="friend3" id="friend3">
+{% for friend in friends %}
+  <option>{{friend.name}}</option>
+{% endfor %}
+</select>
+<p></p>
+
+<p></p>
+<input type="submit">
+</form>
+
+<p></p>
+
+{% endif %}
+{% endif %}
+<form action = "http://127.0.0.1:8000/albedo">
+<button>Назад</button>
+</form>
+{% endblock %}

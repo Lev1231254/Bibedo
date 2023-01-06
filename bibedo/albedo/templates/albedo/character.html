@@ -4,9 +4,28 @@
 
 <p> {{character.name}} <p>
 <p> {{character.element}} {{character.weapon}}<p>
-<p> {{character.link}} <p>
 <form action = "http://127.0.0.1:8000/albedo/characters">
+{%if build%}
+{% for bui in build %}
+<p>  </p>
+<p>Билд: {{bui.bname}}<p>
+<p>От автора: {{bui.author}}<p>
+<p>Оружие: {{bui.weapon}}<p>
+<p>Цветок: {{bui.flower}}<p>
+<p>Перо: {{bui.feather}}<p>
+<p>Часы: {{bui.sands}}<p>
+<p>Кубок: {{bui.goblet}}<p>
+<p>Корона: {{bui.circlet}}<p>
+<p>Пати: {{character.name}}, {{bui.friend1}}, {{bui.friend2}}, {{bui.friend3}}<p>
+	<p>  </p>
+{%endfor%}
+{%endif%}'
+<a href = "{% url 'albedo:doaddbuild' character.ename %}"> 
+добавить билд 
+</a>
+<form action = "http://127.0.0.1:8000/albedo">
 <button>Назад</button>
 </form>
+
 {% endif%}
 {% endblock %}

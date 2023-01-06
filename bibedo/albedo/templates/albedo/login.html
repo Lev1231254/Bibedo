@@ -1,0 +1,17 @@
+{% extends "albedo/base.html" %}
+{% block content %}
+
+<form action = "/albedo/dologin", method="post">
+{% csrf_token %}
+  Username:<br>
+  <input type="text" name="username"><br>
+  Password:<br>
+  <input type="text" name="password">
+  <input type="submit">
+</form>
+
+
+<form action = "http://127.0.0.1:8000/albedo">
+<button>Назад</button>
+</form>
+{% endblock %}

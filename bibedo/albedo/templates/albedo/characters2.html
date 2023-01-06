@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="characters.css"/>
+    <title>Characters</title>
+</head>
+<body>
+	{% extends "albedo/base.html" %}
+	{% block content %}
+
+    <div class="wrapper">
+        <div class="title"><h1>Choose character</h1></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+    </div>
+    <a href="http://127.0.0.1:8000/albedo"><button>На главную</button></a>
+    {% for character in characters %}
+    <a href="{% url 'albedo:character' character.ename %}"><button>{{character.name}}</button></a>
+    {% endfor %}
+    {% endblock %}
+</body>
+</html>
+

@@ -1,0 +1,11 @@
+{% extends "albedo/base.html" %}
+{% block content %}
+{% if character %}
+{% if weapon %}
+<p>Билд создан</p>
+<p> {{character.name}} <p>
+<p> {{character.element}} {{character.weapon}}<p>
+</form>
+{% endif %}
+{% endif %}
+{% endblock %}
