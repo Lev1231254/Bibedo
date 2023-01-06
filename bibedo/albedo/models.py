@@ -34,10 +34,9 @@ class Build(models.Model):
     
 class Weapon(models.Model):
     description = models.TextField(help_text = "описание оружия")
-    typeof = models.TextField(help_text = "название оружия", default = "Катализатор")
+    typeof = models.TextField(help_text = "тип оружия", default = "Катализатор")
     name = models.TextField(help_text = "название оружия", default = "Песнь Странника")
     ename = models.TextField(help_text = "имя для ссылок", default = "TheWidsith")
-    link = models.TextField(default = "http://127.0.0.1:8000/albedo/weapon/SkySword")
 
 class Arts(models.Model):
 	name = models.TextField(help_text = "имя", default='Эмблема рассечённой судьбы')

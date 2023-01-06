@@ -2,9 +2,7 @@
 {% block content %}
 {% if weapon %}
 {% for aweapon in weapon %}
-<form action = "{{aweapon.link}}">
-<button>{{aweapon.name}}</button>
-</form>
+<a href="{% url 'albedo:aweapon' aweapon.ename %}"><button>{{aweapon.name}}</button></a>
 {% endfor %}
 <form action = "http://127.0.0.1:8000/albedo">
 <button>На главную</button>
