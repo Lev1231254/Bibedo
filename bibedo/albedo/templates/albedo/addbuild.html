@@ -6,7 +6,7 @@
 <p>{{character.name}} <p>
 <p>{{character.element}} {{character.weapon}}<p>
 
-<form action = "{% url 'albedo:addbuild' character.ename %}", method="post">
+<form action = "{% url 'albedo:addbuild' character.ename %}" method="post">
 {% csrf_token %}
 
 <p>Название билда:</p>

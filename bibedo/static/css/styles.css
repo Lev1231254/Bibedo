@@ -9,7 +9,7 @@ body {
   background-image: url("/static/img/background_image.jpg")
   background-size: 100%, 100%;
   background-color: #2e2e2e;
-  color: white;
+  color: #F5F5DC;
 }
 
 p {
@@ -20,8 +20,6 @@ p {
   color: #F5F5DC;
 }
 button {
-  width: 116px;
-  height: 150px;
   background: #383838;
   font-size: 20px;
   border: 0;
@@ -59,7 +57,7 @@ a:active { text-decoration: none; }
 /* менюшка */
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(6, 2fr);
+  grid-template-columns: repeat(7, 2fr);
   grid-auto-rows: minmax(100px, auto);
   color: #F5F5DC;
   font-size: 40px;
@@ -142,6 +140,27 @@ a:active { text-decoration: none; }
 
 .characters_button:hover { color: #C2C2AE; background: transparent; }
 
+/* make build button */
+
+.make_build_button_area {
+  grid-column: 6;
+  grid-row: 1;
+  border-radius: 10px;
+}
+
+.make_build_button {
+  display: block;
+  align: center;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  font-size: 35px;
+}
+
+.make_build_button:hover { color: #C2C2AE; background: transparent; }
+
+
+
 
 /* сетка персов */
 
@@ -151,6 +170,11 @@ a:active { text-decoration: none; }
   grid-template-columns: repeat(14, 10fr);
   grid-auto-rows: minmax( auto);
   color: #F5F5DC;
+}
+
+.characters_wrapper button {
+  width: 116px;
+  height: 150px;
 }
 
 .title_characters{
@@ -184,6 +208,13 @@ a:active { text-decoration: none; }
 
 }
 
+.build_button{
+  height: 100px;
+  width: 50%;
+  text-align: left;
+  margin-left: 25%;
+}
+
 
 .back_button {
   width: 100px;
@@ -192,30 +223,4 @@ a:active { text-decoration: none; }
   color: black;
 }
 
-.navbar {
-  background-color: #205295;
-  overflow: hidden;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
 
-.navbar a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.navbar a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.navbar a.active {
-  background-color: #04AA6D;
-  color: white;
-}

@@ -1,31 +1,48 @@
-{% extends "albedo/base.html" %}
-{% block content %}
-{% if character %}
+<!DOCTYPE html>
+    <html>
+        <head>
+            {% extends "albedo/base.html" %}
+			{% load static %}
+            <link rel="stylesheet" href="{% static '/css/styles.css'%}">
+            <title>Builds</title>
+        </head>
+        <body>
+			{% block content %}
+			{% if character %}
+			<p></p>
+			<h1 style="margin-left: 25%;">{{character.name}} </h1>
+			<h2 style="margin-left: 25%;">{{character.element}} {{character.weapon}}</h2>
 
-<p> {{character.name}} <p>
-<p> {{character.element}} {{character.weapon}}<p>
-<form action = "http://127.0.0.1:8000/albedo/characters">
-{%if build%}
-{% for bui in build %}
-<p>  </p>
-<p>Билд: {{bui.bname}}<p>
-<p>От автора: {{bui.author}}<p>
-<p>Оружие: {{bui.weapon}}<p>
-<p>Цветок: {{bui.flower}}<p>
-<p>Перо: {{bui.feather}}<p>
-<p>Часы: {{bui.sands}}<p>
-<p>Кубок: {{bui.goblet}}<p>
-<p>Корона: {{bui.circlet}}<p>
-<p>Пати: {{character.name}}, {{bui.friend1}}, {{bui.friend2}}, {{bui.friend3}}<p>
-	<p>  </p>
-{%endfor%}
-{%endif%}'
-<a href = "{% url 'albedo:doaddbuild' character.ename %}"> 
-добавить билд 
-</a>
-<form action = "http://127.0.0.1:8000/albedo">
-<button>Назад</button>
-</form>
 
-{% endif%}
-{% endblock %}
+			<form action = "http://127.0.0.1:8000/albedo/characters"> </form>
+			{%if build%}
+			{% for bui in build %}
+
+			<p></p>
+
+			<button class="build_button">
+				<img src={{character.picture}} width="85" height="85" style="margin-right: 10px;">
+				Название: "{{bui.bname}}" ||
+				Автор: {{bui.author}}
+			</button>
+
+			<p></p>
+
+			{%endfor%}
+			{%endif%}
+			<a href = "{% url 'albedo:doaddbuild' character.ename %}">
+				<button style="margin-left: 25%; width: 150px; height: 75px; ">
+					Добавить билд
+				</button>
+			</a>
+			<p></p>
+			<form action = "http://127.0.0.1:8000/albedo">
+				<button style="margin-left: 25%; width: 150px; height: 75px; ">Назад</button>
+			</form>
+
+			{% endif%}
+			{% endblock %}
+
+
+        </body>
+</html>
