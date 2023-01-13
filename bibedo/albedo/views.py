@@ -32,10 +32,43 @@ def characters(request):
 def character(request, **kwargs):
     template = loader.get_template('albedo/character.html')
     character = Character.objects.get(ename = kwargs["ename"])
+    weapon = Weapon.objects.filter(typeof = character.weapon)
     build = Build.objects.filter(cname = character.name)
+    aubuild = Build.objects.filter(cname = character.name, author = "leonchik")
+    '''
+    weapo = []
+    for w in weapon:
+        weapo.append(w.name)
+    wep = []
+    сou = []
+    for i in range(len(weapo)):
+        cou.append(0)
+    for bui in build:
+        wep.append(bui.weapon)
+    for i in range(len(weapo)):
+        cou[i]+= wep.count(weapo[i])	
+    f = 0
+    first = 0
+    s = 0
+    second = 0
+    t = 0
+    third = 0
+    for i in range(len(cou)):
+        if cou[i]>first:
+            third = second
+            t = s
+            second = first
+            s = f
+            first = cou[i]
+            f = i
+           	
+    top = [weapon[f],weapon[s],weapon[t]]
+    '''
     context = {
         "character": character,
         "build": build,
+        "aubuild": aubuild,
+        #"top": top
     }
     return HttpResponse(template.render(context,request))
     
@@ -124,6 +157,28 @@ def doaddbuild(request, **kwargs):
         "circlet": circlet,
         "arts": arts,
     }
-    return HttpResponse(template.render(context,request))    
+    return HttpResponse(template.render(context,request)) 
+    
+def build(request, **kwargs):
+    template = loader.get_template('albedo/build.html')
+    build = Build.objects.get(iid = kwargs["iid"])
+    character = Character.objects.get(name = build.cname)
+    context = {
+        "build": build,
+        "character": character,
+    }
+    return HttpResponse(template.render(context,request))
+   
+  
+'''def userbuilds(request, **kwargs):
+    template = loader.get_template('albedo/userbuilds.html')
+    user = User.objects.get(username = kwargs["username"])
+    build = Build.objects.filter(author = username)
+    context = {
+        "build": build,
+        "user": user,
+    }
+    return HttpResponse(template.render(context,request))  
 #def sertain_character(request, name):
 #	template = 
+'''

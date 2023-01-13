@@ -13,9 +13,10 @@ class Character(models.Model):
     weapon = models.TextField(help_text = "оружие")
     element = models.TextField(help_text = "стихия", default = "Гидро")
     ename = models.TextField(help_text = "имя для ссылок", default='Mona')
-    picture = models.TextField(default = "p")
-    
+    picture = models.TextField(default = "https://paimon.moe/images/characters/mona.png")
+
 class Build(models.Model):
+	iid = models.IntegerField(default='0')
 	bname = models.TextField(help_text = "название билда", default='название')
 	author = models.TextField(help_text = "автор", default='leonchik')
 	cname = models.TextField(help_text = "имя персонажа", default='Мона')

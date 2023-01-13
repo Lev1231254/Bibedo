@@ -1,0 +1,21 @@
+{% extends "albedo/base.html" %}
+{% block content %}
+
+<form action = "http://127.0.0.1:8000/albedo/characters">
+{%if build%}
+<p>  </p>
+<p>Билд: {{build.bname}}<p>
+<p>Для персонажа: {{build.cname}}<p>
+<p>От автора: {{build.author}}<p>
+<p>Оружие: {{build.weapon}}<p>
+<p>Цветок: {{build.flower}}<p>
+<p>Перо: {{build.feather}}<p>
+<p>Часы: {{build.sands}}<p>
+<p>Кубок: {{build.goblet}}<p>
+<p>Корона: {{build.circlet}}<p>
+<p>Пати: {{build.cname}}, {{build.friend1}}, {{build.friend2}}, {{build.friend3}}<p>
+	<p>  </p>
+{%endif%}
+<a href="{% url 'albedo:character' character.ename %}">назад</a>
+
+{% endblock %}
