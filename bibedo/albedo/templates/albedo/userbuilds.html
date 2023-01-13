@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            {% extends "albedo/base.html" %}
+			{% load static %}
+            <link rel="stylesheet" href="{% static '/css/styles.css'%}">
+			{% block content %}
+            <title>{{user.username}}'s builds</title>
+        </head>
+        <body>
+
+            <p></p>
+            <h1 style="margin-left: 25%;">Builds from {{user.username}}:</h1>
+
+            {%if build%}
+            {% for bui in build %}
+
+            <p></p>
+			<a href="{% url 'albedo:build' bui.iid %}">
+				<button class="build_button">
+					<img src={{character.picture}} width="85" height="85" style="margin-right: 10px;" alt="{{character.ename}}">
+					Название: "{{bui.bname}}" ||
+					Автор: {{bui.author}}
+				</button>
+			</a>
+			<p></p>
+            {%endfor%}
+            {%endif%}
+
+            <div class="buttons">
+					<button style="margin-left: 25%; width: 24%; height: 75px; " onclick="history.back()">
+						Назад
+					</button>
+            </div>
+
+
+            {% endblock %}
+
+
+
+        </body>
+</html>
+
+
+

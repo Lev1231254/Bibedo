@@ -57,7 +57,7 @@ a:active { text-decoration: none; }
 /* менюшка */
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(7, 2fr);
+  grid-template-columns: repeat(6, 2fr);
   grid-auto-rows: minmax(100px, auto);
   color: #F5F5DC;
   font-size: 40px;
@@ -86,7 +86,7 @@ a:active { text-decoration: none; }
 /* register button */
 
 .register_button_area {
-  grid-column: 3;
+  grid-column: 4;
   grid-row: 1;
   border-radius: 10px;
 }
@@ -105,7 +105,7 @@ a:active { text-decoration: none; }
 /* login button */
 
 .login_button_area {
-  grid-column: 4;
+  grid-column: 5;
   grid-row: 1;
   border-radius: 10px;
 }
@@ -124,7 +124,7 @@ a:active { text-decoration: none; }
 /* characters button */
 
 .characters_button_area {
-  grid-column: 5;
+  grid-column: 3;
   grid-row: 1;
   border-radius: 10px;
 }
@@ -139,26 +139,6 @@ a:active { text-decoration: none; }
 }
 
 .characters_button:hover { color: #C2C2AE; background: transparent; }
-
-/* make build button */
-
-.make_build_button_area {
-  grid-column: 6;
-  grid-row: 1;
-  border-radius: 10px;
-}
-
-.make_build_button {
-  display: block;
-  align: center;
-  height: 100%;
-  width: 100%;
-  background: transparent;
-  font-size: 35px;
-}
-
-.make_build_button:hover { color: #C2C2AE; background: transparent; }
-
 
 
 
@@ -213,6 +193,28 @@ a:active { text-decoration: none; }
   width: 50%;
   text-align: left;
   margin-left: 25%;
+}
+
+/* build page */
+
+
+
+.build{
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 25px;
+  background-color: #242424;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.make_build{
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 25px;
+  background-color: #242424;
+  border-radius: 10px;
+  padding: 15px;
 }
 
 

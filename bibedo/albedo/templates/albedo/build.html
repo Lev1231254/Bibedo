@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% extends "albedo/base.html" %}
+		{% load static %}
+		<link rel="stylesheet" href="{% static '/css/styles.css'%}">
+		{% block content %}
+		<title>Build "{{build.bname}}"</title>
+	</head>
+	<body>
+	<form action = "http://127.0.0.1:8000/albedo/characters"></form>
+		{%if build%}
+		<div class="build">
+			<p>  </p>
+			<p>From author: <a href="{% url 'albedo:userbuilds' build.author %}">{{build.author}} </a></p>
+			<h2>Build: "{{build.bname}}"</h2>
+			<hr>
+			<p>Party: {{build.cname}}, {{build.friend1}}, {{build.friend2}}, {{build.friend3}}</p>
+			<img src={{character.picture}} width="85" height="85" alt="{{character.ename}}"/>
+			<img src={{friend1.picture}} width="85" height="85" alt="{{build.friend1}}"/>
+			<img src={{friend2.picture}} width="85" height="85" alt="{{build.friend2}}"/>
+			<img src={{friend3.picture}} width="85" height="85" alt="{{build.friend3}}"/>
+
+			<p></p>
+			<p>Weapon: {{build.weapon}}</p>
+			<div class="build_grid">
+
+				<div class="flower"><img src="https://static.wikia.nocookie.net/gensin-impact/images/2/2d/Icon_Flower_of_Life.png/revision/latest/scale-to-width-down/50?cb=20210712005358" width="85" height="85"/><p>Flower: {{build.flower}}</p></div>
+				<div class="feather"><img src="https://static.wikia.nocookie.net/gensin-impact/images/8/8b/Icon_Plume_of_Death.png/revision/latest/scale-to-width-down/50?cb=20210712005411" width="85" height="85"/><p>Feather: {{build.feather}}</p></div>
+				<div class="watches"><img src="https://static.wikia.nocookie.net/gensin-impact/images/9/9f/Icon_Sands_of_Eon.png/revision/latest/scale-to-width-down/50?cb=20210713185616" width="85" height="85"/><p>Watches: {{build.sands}}</p></div>
+				<div class="goblet"><img src="https://static.wikia.nocookie.net/gensin-impact/images/3/37/Icon_Goblet_of_Eonothem.png/revision/latest/scale-to-width-down/50?cb=20210713185527" width="85" height="85"/><p>Goblet: {{build.goblet}}</p></div>
+				<div class="crown"><img src="https://static.wikia.nocookie.net/gensin-impact/images/6/64/Icon_Circlet_of_Logos.png/revision/latest/scale-to-width-down/50?cb=20210712005353" width="85" height="85"/><p>Crown: {{build.circlet}}</p></div>
+
+			</div>
+			<p>  </p>
+		</div>
+
+		{%endif%}
+			<div class="buttons">
+					<button style="margin-left: 25%; width: 24%; height: 75px; " onclick="history.back()">
+						Назад
+					</button>
+			</div>
+
+		{% endblock %}
+	</body>
+</html>

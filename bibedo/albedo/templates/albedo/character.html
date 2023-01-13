@@ -4,10 +4,11 @@
             {% extends "albedo/base.html" %}
 			{% load static %}
             <link rel="stylesheet" href="{% static '/css/styles.css'%}">
-            <title>Builds</title>
+			{% block content %}
+            <title>{{character.ename}} builds</title>
         </head>
         <body>
-			{% block content %}
+
 			{% if character %}
 			<p></p>
 			<h1 style="margin-left: 25%;">{{character.name}} </h1>
@@ -15,30 +16,36 @@
 
 
 			<form action = "http://127.0.0.1:8000/albedo/characters"> </form>
+
 			{%if build%}
 			{% for bui in build %}
 
 			<p></p>
-
-			<button class="build_button">
-				<img src={{character.picture}} width="85" height="85" style="margin-right: 10px;">
-				Название: "{{bui.bname}}" ||
-				Автор: {{bui.author}}
-			</button>
-
+			<a href="{% url 'albedo:build' bui.iid %}">
+				<button class="build_button">
+					<img src={{character.picture}} width="85" height="85" style="margin-right: 10px;" alt="{{character.ename}}">
+					Название: "{{bui.bname}}" ||
+					Автор: {{bui.author}}
+				</button>
+			</a>
 			<p></p>
 
 			{%endfor%}
 			{%endif%}
-			<a href = "{% url 'albedo:doaddbuild' character.ename %}">
-				<button style="margin-left: 25%; width: 150px; height: 75px; ">
-					Добавить билд
-				</button>
-			</a>
+
 			<p></p>
-			<form action = "http://127.0.0.1:8000/albedo">
-				<button style="margin-left: 25%; width: 150px; height: 75px; ">Назад</button>
-			</form>
+			<div class="buttons">
+					<button style="margin-left: 25%; width: 24%; height: 75px; " onclick="history.back()">
+						Назад
+					</button>
+
+				<a href = "{% url 'albedo:addbuild' character.ename %}">
+					<button style="margin-left: 1%; width: 25%; height: 75px; ">
+						Добавить билд
+					</button>
+				</a>
+			</div>
+
 
 			{% endif%}
 			{% endblock %}

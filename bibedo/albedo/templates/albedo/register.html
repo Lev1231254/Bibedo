@@ -13,6 +13,8 @@
 
     <form action = "/albedo/doregister" method="post">
         <div class="login_input">
+            <p></p>
+            <h2>Sign up</h2>
             {% csrf_token %}
             <br>
             Username: <br>
@@ -20,9 +22,6 @@
             Password:<br>
             <input  type="text" name="password"><br>
 
-            <form action = "http://127.0.0.1:8000/albedo">
-                <button class="back_button">Back</button>
-            </form>
             <input style="margin: 20px; width: 100px; height: 40px;" type="submit" value="Submit">
         </div>
     </form>
