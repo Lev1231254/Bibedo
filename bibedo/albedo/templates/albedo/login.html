@@ -1,17 +1,35 @@
-{% extends "albedo/base.html" %}
-{% block content %}
 
-<form action = "/albedo/dologin", method="post">
-{% csrf_token %}
-  Username:<br>
-  <input type="text" name="username"><br>
-  Password:<br>
-  <input type="text" name="password">
-  <input type="submit">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      {% extends "albedo/base.html" %}
+      {% load static %}
+      {% block content %}
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="{% static '/css/styles.css'%}"/>
+      <title>Login</title>
+  </head>
+
+  <body>
+
+    <form action = "/albedo/dologin" method="post">
+        <div class="login_input">
+            {% csrf_token %}
+            <br>
+            Username: <br>
+            <input type="text" name="username"><br>
+            Password:<br>
+            <input  type="text" name="password"><br>
+
+            <form action = "http://127.0.0.1:8000/albedo">
+                <button class="back_button">Back</button>
+            </form>
+            <input style="margin: 20px; width: 100px; height: 40px;" type="submit" value="Submit">
+        </div>
+    </form>
 
 
-<form action = "http://127.0.0.1:8000/albedo">
-<button>Назад</button>
-</form>
-{% endblock %}
+
+    {% endblock %}
+  </body>
+</html>

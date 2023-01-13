@@ -1,17 +1,34 @@
-{% extends "albedo/base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      {% extends "albedo/base.html" %}
+      {% load static %}
+      {% block content %}
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="{% static '/css/styles.css'%}"/>
+      <title>Register</title>
+  </head>
 
-<form action = "/albedo/doregister", method="post">
-{% csrf_token %}
-  Username:<br>
-  <input type="text" name="username"><br>
-  Password:<br>
-  <input type="text" name="password">
-  <input type="submit">
-</form>
+  <body>
+
+    <form action = "/albedo/doregister" method="post">
+        <div class="login_input">
+            {% csrf_token %}
+            <br>
+            Username: <br>
+            <input type="text" name="username"><br>
+            Password:<br>
+            <input  type="text" name="password"><br>
+
+            <form action = "http://127.0.0.1:8000/albedo">
+                <button class="back_button">Back</button>
+            </form>
+            <input style="margin: 20px; width: 100px; height: 40px;" type="submit" value="Submit">
+        </div>
+    </form>
 
 
-<form action = "http://127.0.0.1:8000/albedo">
-<button>back</button>
-</form>
-{% endblock %}
+
+    {% endblock %}
+  </body>
+</html>

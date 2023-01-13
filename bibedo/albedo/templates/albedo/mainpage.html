@@ -1,18 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    {% extends "albedo/base.html" %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/styles.css'%}">
 </head>
 <body>
-	{% extends "albedo/base.html" %}
-    {% block content%}
-    <div class="wrapper">
-	<div class="gap1"></div>
-    <div class="title">
-		<h1>Welcome to Bibedo!</h1>
-        <p>This website is made to make it easier to find builds of other people.</p>
-    </div>
-    <div class="gap2"></div>
-    </div>
-    {% endblock %}
+
 </body>
 </html>
