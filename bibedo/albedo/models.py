@@ -14,7 +14,11 @@ class Character(models.Model):
     element = models.TextField(help_text = "стихия", default = "Гидро")
     ename = models.TextField(help_text = "имя для ссылок", default='Mona')
     picture = models.TextField(default = "https://paimon.moe/images/characters/mona.png")
-
+    bigpicture = models.TextField(default = "https://paimon.moe/images/characters/full/mona.png")
+    rarity = models.IntegerField(default='5')
+    elepic = models.TextField(default = "https://paimon.moe/images/elements/gydro.png")
+    raripic = models.TextField(default = "https://static.wikia.nocookie.net/genshin-impact/images/6/69/%D0%98%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0_5_%D0%97%D0%B2%D1%91%D0%B7%D0%B4.png/revision/latest/scale-to-width-down/79?cb=20210226153349&path-prefix=ru")
+    region = models.TextField(default = "Мондштадт")
 class Build(models.Model):
 	iid = models.IntegerField(default='0')
 	bname = models.TextField(help_text = "название билда", default='название')
@@ -31,6 +35,7 @@ class Build(models.Model):
 	friend1 = models.TextField(help_text = "союзник 1", default='Дилюк')
 	friend2 = models.TextField(help_text = "союзник 2", default='Джин')
 	friend3 = models.TextField(help_text = "союзник 3", default='Ке Цин')
+	picture = models.TextField(default = "https://paimon.moe/images/characters/mona.png")
     
     
 class Weapon(models.Model):
@@ -38,6 +43,7 @@ class Weapon(models.Model):
     typeof = models.TextField(help_text = "тип оружия", default = "Катализатор")
     name = models.TextField(help_text = "название оружия", default = "Песнь Странника")
     ename = models.TextField(help_text = "имя для ссылок", default = "TheWidsith")
+    picture = models.TextField(default = "https://paimon.moe/images/weapons/the_widsith.png")
 
 class Arts(models.Model):
 	name = models.TextField(help_text = "имя", default='Эмблема рассечённой судьбы')

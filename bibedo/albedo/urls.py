@@ -16,5 +16,5 @@ urlpatterns=[
     path('character/<slug:ename>/doaddbuild', views.addbuild, name = "addbuild"),
     path('character/<slug:ename>/addbuild', views.doaddbuild, name = "doaddbuild"),
     path('build/<int:iid>', views.build, name = "build"),
-    #path('userbuilds/<slug:username>', views.user, name = "userbuilds"),
+    path('userbuilds/<slug:login>', views.userbuilds, name = "userbuilds"),
 ]

@@ -1,99 +1,137 @@
-{% extends "albedo/base.html" %}
-{% block content %}
-{% if character %}
-{% if weapon %}
-<p>Создайте свой билд!</p>
-<p>{{character.name}} <p>
-<p>{{character.element}} {{character.weapon}}<p>
+<!DOCTYPE html>
+    <html>
+        <head>
+            {% extends "albedo/base.html" %}
+            {% load static %}
+            <link rel="stylesheet" href="{% static '/css/styles.css'%}">
+            {% block content %}
+            <title>Make build</title>
+        </head>
+        <body>
+			<p></p>
+            <div class="make_build_wrapper">
+				<div class="gap_make_build"></div>
+				
+				<div class="main_text">
+					{% if character %}
+					{% if weapon %}		
+					<p>Character: {{character.ename}}</p>
 
-<form action = "{% url 'albedo:addbuild' character.ename %}", method="post">
-{% csrf_token %}
+					<form action = "{% url 'albedo:addbuild' character.ename %}" method="post">
+					{% csrf_token %}
 
-<p>Название билда:</p>
-<input type="text" name="bname">
-<p></p>
+					<p><input placeholder="Build name" style=" color: #F5F5DC; width: 400px;" type="text" name="bname"></p>
+					
+					<p></p>
 
-<p>оружиe:</p>
-<select type="text" name="theweapon" id="theweapon">
-{% for aweapon in weapon %}
-  <option>{{aweapon.name}}</option>
-{% endfor %}
-</select>
-<p></p>
+					<p>Select weapon:</p>
+					<select type="text" name="theweapon" id="theweapon">
+					{% for aweapon in weapon %}
+					  <option>{{aweapon.name}}</option>
+					{% endfor %}
+					</select>
+					<p></p>
+					<div class="set1">
+						<p>сет артефактов 1:</p>
+						<select type="text" name="artiset1" id="artiset1">
+						{% for art in arts %}
+						  <option>{{art.name}}</option>
+						{% endfor %}
+						</select>
+						<p></p>
+					</div>
+					<div class="set2">
+						<p>сет артефактов 2:</p>
+						<select type="text" name="artiset2" id="artiset2">
+						{% for art in arts %}
+						  <option>{{art.name}}</option>
+						{% endfor %}
+						</select>
+						<p></p>
+					</div>
+					
+					
+					<div>
+						<p>часы:</p>
+						<select type="text" name="sands" id="sands">
+						{% for char in sands %}
+						  <option>{{char}}</option>
+						{% endfor %}
+						</select>
+						<p></p>
+					</div>
+					
+					<div>
+						<p>кубок:</p>
+						<select type="text" name="goblet" id="goblet">
+						{% for char in goblet %}
+						  <option>{{char}}</option>
+						{% endfor %}
+						</select>
+						<p></p>
+					</div>
+					<div>
+						<p>корона:</p>
+						<select type="text" name="circlet" id="circlet">
+						{% for char in circlet %}
+						  <option>{{char}}</option>
+						{% endfor %}
+						</select>
+						<p></p></div>
+					
+					<div>
+						<p>Первый союзник:</p>
+						<select type="text" name="friend1" id="friend1">
+						{% for friend in friends %}
+						  <option>{{friend.name}}</option>
+						{% endfor %}
+						</select>
+						<p></p></div>
+					
+					<div>
 
-<p>сет артефактов 1:</p>
-<select type="text" name="artiset1" id="artiset1">
-{% for art in arts %}
-  <option>{{art.name}}</option>
-{% endfor %}
-</select>
-<p></p>
+						<p>Второй союзник:</p>
+						<select type="text" name="friend2" id="friend2">
+						{% for friend in friends %}
+						  <option>{{friend.name}}</option>
+						{% endfor %}
+						</select>
+						<p></p></div>
+					
+					<div>
 
-<p>сет артефактов 2:</p>
-<select type="text" name="artiset2" id="artiset2">
-{% for art in arts %}
-  <option>{{art.name}}</option>
-{% endfor %}
-</select>
-<p></p>
+						<p>Третий союзник:</p>
+						<select type="text" name="friend3" id="friend3">
+						{% for friend in friends %}
+						  <option>{{friend.name}}</option>
+						{% endfor %}
+						</select>
+						<p></p></div>
 
-<p>часы:</p>
-<select type="text" name="sands" id="sands">
-{% for char in sands %}
-  <option>{{char}}</option>
-{% endfor %}
-</select>
-<p></p>
+					<p></p>
+					<button style="width: 150px; height: 75px; " onclick="history.back()">
+						Назад
+					</button>
+					<input  style="width: 150px; height: 75px; color: #F5F5DC; " type="submit"	>
+					</form>
 
-<p>кубок:</p>
-<select type="text" name="goblet" id="goblet">
-{% for char in goblet %}
-  <option>{{char}}</option>
-{% endfor %}
-</select>
-<p></p>
-
-<p>корона:</p>
-<select type="text" name="circlet" id="circlet">
-{% for char in circlet %}
-  <option>{{char}}</option>
-{% endfor %}
-</select>
-<p></p>
-
-<p>Первый союзник:</p>
-<select type="text" name="friend1" id="friend1">
-{% for friend in friends %}
-  <option>{{friend.name}}</option>
-{% endfor %}
-</select>
-<p></p>
-
-<p>Второй союзник:</p>
-<select type="text" name="friend2" id="friend2">
-{% for friend in friends %}
-  <option>{{friend.name}}</option>
-{% endfor %}
-</select>
-<p></p>
-
-<p>Третий союзник:</p>
-<select type="text" name="friend3" id="friend3">
-{% for friend in friends %}
-  <option>{{friend.name}}</option>
-{% endfor %}
-</select>
-<p></p>
-
-<p></p>
-<input type="submit">
-</form>
-
-<p></p>
-
-{% endif %}
-{% endif %}
-<form action = "http://127.0.0.1:8000/albedo">
-<button>Назад</button>
-</form>
-{% endblock %}
+					
+					{% endif %}
+					{% endif %}
+					{% if not weapon %}
+					<div style="text-align: center;">
+						<p>Билд создан</p>
+						<button style="width: 150px; height: 75px; " onclick="history.back()">
+							Назад
+						</button>
+					</div>
+					{% endif %}
+					
+					
+            </div>
+					{% endblock %}
+                </div>
+                
+            </div>
+        </body>
+</html>

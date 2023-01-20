@@ -134,7 +134,10 @@ def addbuild(request,**kwargs):
     artiset1 = request.POST.get('artiset1')
     artiset2 = request.POST.get('artiset2')
     bname = request.POST.get('bname')
-    Build.objects.create(bname = bname, author = request.user,cname = character.name, weapon = theweapon, artiset1 = artiset1, artiset2 = artiset2, flower = "HP", feather = "ATK", sands = sands, goblet = goblet, circlet = circlet, friend1 = friend1, friend2 = friend2, friend3 = friend3)        
+    latb = Build.objects.latest('iid')
+    iid = latb.iid + 1 
+    picture = character.picture
+    Build.objects.create(iid = iid, bname = bname, author = request.user,cname = character.name, weapon = theweapon, artiset1 = artiset1, artiset2 = artiset2, flower = "HP", feather = "ATK", sands = sands, goblet = goblet, circlet = circlet, friend1 = friend1, friend2 = friend2, friend3 = friend3, picture = picture)        
     context = {
         "character": character,
     }
@@ -162,23 +165,31 @@ def doaddbuild(request, **kwargs):
 def build(request, **kwargs):
     template = loader.get_template('albedo/build.html')
     build = Build.objects.get(iid = kwargs["iid"])
+    friend1 = Character.objects.get(name = build.friend1)
+    friend2 = Character.objects.get(name = build.friend2)
+    friend3 = Character.objects.get(name = build.friend3)
     character = Character.objects.get(name = build.cname)
+    weapon = Weapon.objects.get(name = build.weapon)
     context = {
         "build": build,
         "character": character,
+        "weapon": weapon,
+        "friend1": friend1,
+        "friend2": friend2,
+        "friend3": friend3,
     }
     return HttpResponse(template.render(context,request))
    
   
-'''def userbuilds(request, **kwargs):
+def userbuilds(request, **kwargs):
     template = loader.get_template('albedo/userbuilds.html')
-    user = User.objects.get(username = kwargs["username"])
-    build = Build.objects.filter(author = username)
+    user = Usert.objects.get(username = kwargs["login"])
+    build = Build.objects.filter(author = user.username)
+    
     context = {
         "build": build,
         "user": user,
     }
     return HttpResponse(template.render(context,request))  
-#def sertain_character(request, name):
-#	template = 
-'''
+
+
