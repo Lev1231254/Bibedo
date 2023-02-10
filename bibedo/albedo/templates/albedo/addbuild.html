@@ -9,129 +9,156 @@
         </head>
         <body>
 			<p></p>
-            <div class="make_build_wrapper">
-				<div class="gap_make_build"></div>
-				
-				<div class="main_text">
-					{% if character %}
-					{% if weapon %}		
-					<p>Character: {{character.ename}}</p>
 
-					<form action = "{% url 'albedo:addbuild' character.ename %}" method="post">
-					{% csrf_token %}
 
-					<p><input placeholder="Build name" style=" color: #F5F5DC; width: 400px;" type="text" name="bname"></p>
-					
+			{% if character %}
+			{% if weapon %}
+
+
+
+
+			<form action = "{% url 'albedo:addbuild' character.ename %}" method="post">
+				{% csrf_token %}
+
+				<div class="make_build_wrapper">
+
+					<div class="addbuild_build_name" >
+						<img src={{character.picture}} style="border-radius: 7px; margin-top: 10px; width: 75px; height: 75px;">
+						{{character.name}} <img src={{character.elepic}} style="width: 30px; height: 30px"> <img src={{character.raripic}}>
+						<br style="margin-bottom: 15px;">
+						<input placeholder="Build name" style=" color: #F5F5DC; width: 400px; font-size: 20px; " type="text" name="bname">
+						<hr style="margin-bottom: 15px;">
+					</div>
+
 					<p></p>
 
-					<p>Select weapon:</p>
-					<select type="text" name="theweapon" id="theweapon">
-					{% for aweapon in weapon %}
-					  <option>{{aweapon.name}}</option>
-					{% endfor %}
-					</select>
-					<p></p>
-					<div class="set1">
-						<p>сет артефактов 1:</p>
+					<div class="addbuild_subgrid">
+
+					<div class="addbuild_select_weapon">
+						Select weapon:
+						<select type="text" name="theweapon" id="theweapon">
+							{% for aweapon in weapon %}
+							<option>{{aweapon.name}}</option>
+							{% endfor %}
+						</select>
+						<hr>
+					</div>
+
+
+					<div class="addbuild_set_arts1">
+						сет артов 1:
 						<select type="text" name="artiset1" id="artiset1">
-						{% for art in arts %}
-						  <option>{{art.name}}</option>
-						{% endfor %}
+							{% for art in arts %}
+							<option>{{art.name}}</option>
+							{% endfor %}
 						</select>
-						<p></p>
+						<hr>
 					</div>
-					<div class="set2">
-						<p>сет артефактов 2:</p>
+
+					<div class="addbuild_set_arts2">
+						сет артов 2:
 						<select type="text" name="artiset2" id="artiset2">
-						{% for art in arts %}
-						  <option>{{art.name}}</option>
-						{% endfor %}
+							{% for art in arts %}
+							<option>{{art.name}}</option>
+							{% endfor %}
 						</select>
-						<p></p>
+						<hr>
 					</div>
-					
-					
-					<div>
-						<p>часы:</p>
+
+
+					<div class="addbuild_watch">
+						часы:
+						<br>
 						<select type="text" name="sands" id="sands">
-						{% for char in sands %}
-						  <option>{{char}}</option>
-						{% endfor %}
+							{% for char in sands %}
+							<option>{{char}}</option>
+							{% endfor %}
 						</select>
-						<p></p>
+						<hr>
 					</div>
-					
-					<div>
-						<p>кубок:</p>
+
+					<div class="addbuild_cup">
+						кубок:
+						<br>
 						<select type="text" name="goblet" id="goblet">
-						{% for char in goblet %}
-						  <option>{{char}}</option>
-						{% endfor %}
+							{% for char in goblet %}
+							<option>{{char}}</option>
+							{% endfor %}
 						</select>
-						<p></p>
+						<hr>
 					</div>
-					<div>
-						<p>корона:</p>
+					<div class="addbuild_crown">
+						корона:
 						<select type="text" name="circlet" id="circlet">
-						{% for char in circlet %}
-						  <option>{{char}}</option>
-						{% endfor %}
+							{% for char in circlet %}
+							<option>{{char}}</option>
+							{% endfor %}
 						</select>
-						<p></p></div>
-					
-					<div>
-						<p>Первый союзник:</p>
-						<select type="text" name="friend1" id="friend1">
-						{% for friend in friends %}
-						  <option>{{friend.name}}</option>
-						{% endfor %}
-						</select>
-						<p></p></div>
-					
-					<div>
-
-						<p>Второй союзник:</p>
-						<select type="text" name="friend2" id="friend2">
-						{% for friend in friends %}
-						  <option>{{friend.name}}</option>
-						{% endfor %}
-						</select>
-						<p></p></div>
-					
-					<div>
-
-						<p>Третий союзник:</p>
-						<select type="text" name="friend3" id="friend3">
-						{% for friend in friends %}
-						  <option>{{friend.name}}</option>
-						{% endfor %}
-						</select>
-						<p></p></div>
-
-					<p></p>
-					<button style="width: 150px; height: 75px; " onclick="history.back()">
-						Назад
-					</button>
-					<input  style="width: 150px; height: 75px; color: #F5F5DC; " type="submit"	>
-					</form>
-
-					
-					{% endif %}
-					{% endif %}
-					{% if not weapon %}
-					<div style="text-align: center;">
-						<p>Билд создан</p>
-						<button style="width: 150px; height: 75px; " onclick="history.back()">
-							Назад
-						</button>
+						<hr>
 					</div>
-					{% endif %}
+
+					<div class="addbuild_ally1">
+						Cоюзник 1:
+						<select type="text" name="friend1" id="friend1">
+							{% for friend in friends %}
+							<option>{{friend.name}}</option>
+							{% endfor %}
+						</select>
+						<hr>
+					</div>
+
+					<div class="addbuild_ally2">
+
+						Cоюзник 2:
+						<select name="friend2" id="friend2">
+							{% for friend in friends %}
+							<option>{{friend.name}} </option>
+
+							{% endfor %}
+						</select>
+
+						<img src="{{friend.picture}}">
+						<hr>
+					</div>
+
+					<div class="addbuild_ally3">
+
+						Cоюзник 3:
+						<select type="text" name="friend3" id="friend3">
+							{% for friend in friends %}
+							<option>{{friend.name}}</option>
+							{% endfor %}
+						</select>
+						<hr>
+					</div>
+					</div>
+
+
+					<div class="addbuild_back"></div>
+
+					<div class="add_build_submit"></div>
+
+
+				</div>
+				<button style="margin-top: 25px; margin-left: 30%; width: 19%; height: 75px;" onclick="history.back()">
+					Назад
+				</button>
+				<input  style="margin-left: 1%; width: 19%; height: 75px; color: #F5F5DC; font-size: 20px; border: 0;" type="submit">
+			</form>
+
+			{% endif %}
+			{% endif %}
+			{% if not weapon %}
+			<div style="text-align: center;">
+				<p>Билд создан</p>
+				<button style="width: 150px; height: 75px; " onclick="history.back()">
+					Назад
+				</button>
+			</div>
+			{% endif %}
 					
 					
-            </div>
-					{% endblock %}
-                </div>
-                
-            </div>
+
+			{% endblock %}
         </body>
 </html>

@@ -19,6 +19,7 @@ class Character(models.Model):
     elepic = models.TextField(default = "https://paimon.moe/images/elements/gydro.png")
     raripic = models.TextField(default = "https://static.wikia.nocookie.net/genshin-impact/images/6/69/%D0%98%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0_5_%D0%97%D0%B2%D1%91%D0%B7%D0%B4.png/revision/latest/scale-to-width-down/79?cb=20210226153349&path-prefix=ru")
     region = models.TextField(default = "Мондштадт")
+    color = models.TextField(default = "")
 class Build(models.Model):
 	iid = models.IntegerField(default='0')
 	bname = models.TextField(help_text = "название билда", default='название')
@@ -47,7 +48,11 @@ class Weapon(models.Model):
 
 class Arts(models.Model):
 	name = models.TextField(help_text = "имя", default='Эмблема рассечённой судьбы')
-	
+	flower = models.TextField(default= 'https://paimon.moe/images/artifacts/crimson_witch_of_flames_flower.png')
+	feather = models.TextField(default='https://paimon.moe/images/artifacts/crimson_witch_of_flames_feather.png')
+	sands = models.TextField(default='https://paimon.moe/images/artifacts/crimson_witch_of_flames_sands.png')
+	goblet = models.TextField(default='https://paimon.moe/images/artifacts/crimson_witch_of_flames_goblet.png')
+	circlet = models.TextField(default='https://paimon.moe/images/artifacts/crimson_witch_of_flames_circlet.png')
 #class Sands(models.Model):
 #	char = models.TextField(help_text = "характеристика", default='ATK%')
 

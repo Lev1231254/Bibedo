@@ -17,32 +17,16 @@
         <body>
 
 			{% if character %}
+
+
+
 			<p></p>
-			<img src={{character.elepic}}>
-			<h1 style="margin-left: 25%;">{{character.name}} </h1> 
+
+			<h1 style="margin-left: 25%;"><img src={{character.elepic}}> {{character.name}} <img src={{character.raripic}}></h1>
 			
 			<h2 style="margin-left: 25%;">{{character.element}} {{character.weapon}}</h2>
-			<img src={{character.raripic}}>
 
-			<form action = "http://127.0.0.1:8000/albedo/characters"> </form>
 
-			{%if build%}
-			{% for bui in build %}
-
-			<p></p>
-			<a href="{% url 'albedo:build' bui.iid %}">
-				<button class="build_button">
-					<img src={{character.picture}} width="85" height="85" style="margin-right: 10px;" alt="{{character.ename}}">
-					Название: "{{bui.bname}}" ||
-					Автор: {{bui.author}}
-				</button>
-			</a>
-			<p></p>
-
-			{%endfor%}
-			{%endif%}
-
-			<p></p>
 			<div class="buttons">
 					<button class="character_back_button" style="margin-left: 25%; width: 24%; height: 75px;" onclick="history.back()">
 						Назад
@@ -55,6 +39,25 @@
 				</a>
 			</div>
 
+			<form action = "/albedo/characters"> </form>
+
+			{%if build%}
+			{% for bui in build %}
+
+			<p></p>
+			<a href="{% url 'albedo:build' bui.iid %}">
+				<button class="build_button">
+					<img src={{character.picture}} width="85" height="85" style="margin-right: 10px;" alt="{{character.ename}}">
+					"{{bui.bname}}" ||
+					Автор: {{bui.author}}
+				</button>
+			</a>
+			<p></p>
+
+			{%endfor%}
+			{%endif%}
+
+			<p></p>
 
 			{% endif%}
 			{% endblock %}

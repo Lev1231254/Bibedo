@@ -16,21 +16,26 @@
 			<h2>Build: "{{build.bname}}"</h2>
 			<hr>
 			<p>Party: {{build.cname}}, {{build.friend1}}, {{build.friend2}}, {{build.friend3}}</p>
+			 <a href="{% url 'albedo:character' character.ename %}">
 			<img src={{character.picture}} width="85" height="85" alt="{{character.ename}}"/>
+			 <a href="{% url 'albedo:character' friend1.ename %}">
 			<img src={{friend1.picture}} width="85" height="85" alt="{{build.friend1}}"/>
+			 <a href="{% url 'albedo:character' friend2.ename %}">
 			<img src={{friend2.picture}} width="85" height="85" alt="{{build.friend2}}"/>
+			 <a href="{% url 'albedo:character' friend3.ename %}">
 			<img src={{friend3.picture}} width="85" height="85" alt="{{build.friend3}}"/>
+			
 
 			<p></p>
 			<p>Weapon: {{build.weapon}}</p>
 			<img src={{weapon.picture}} width="85" height="85" style="margin-right: 10px;" alt="{{weapon.ename}}">
 			<div class="build_grid">
 
-				<div class="flower"><img src="https://static.wikia.nocookie.net/gensin-impact/images/2/2d/Icon_Flower_of_Life.png/revision/latest/scale-to-width-down/50?cb=20210712005358" width="85" height="85"/><p>Flower: {{build.flower}}</p></div>
-				<div class="feather"><img src="https://static.wikia.nocookie.net/gensin-impact/images/8/8b/Icon_Plume_of_Death.png/revision/latest/scale-to-width-down/50?cb=20210712005411" width="85" height="85"/><p>Feather: {{build.feather}}</p></div>
-				<div class="watches"><img src="https://static.wikia.nocookie.net/gensin-impact/images/9/9f/Icon_Sands_of_Eon.png/revision/latest/scale-to-width-down/50?cb=20210713185616" width="85" height="85"/><p>Watches: {{build.sands}}</p></div>
-				<div class="goblet"><img src="https://static.wikia.nocookie.net/gensin-impact/images/3/37/Icon_Goblet_of_Eonothem.png/revision/latest/scale-to-width-down/50?cb=20210713185527" width="85" height="85"/><p>Goblet: {{build.goblet}}</p></div>
-				<div class="crown"><img src="https://static.wikia.nocookie.net/gensin-impact/images/6/64/Icon_Circlet_of_Logos.png/revision/latest/scale-to-width-down/50?cb=20210712005353" width="85" height="85"/><p>Crown: {{build.circlet}}</p></div>
+				<div class="flower"><img src={{set1.flower}} width="85" height="85"/><p>Flower: {{build.flower}}</p></div>
+				<div class="feather"><img src={{set1.feather}} width="85" height="85"/><p>Feather: {{build.feather}}</p></div>
+				<div class="watches"><img src={{set1.sands}} width="85" height="85"/><p>Watches: {{build.sands}}</p></div>
+				<div class="goblet"><img src={{set2.goblet}} width="85" height="85"/><p>Goblet: {{build.goblet}}</p></div>
+				<div class="crown"><img src={{set2.circlet}} width="85" height="85"/><p>Crown: {{build.circlet}}</p></div>
 
 			</div>
 			<p>  </p>

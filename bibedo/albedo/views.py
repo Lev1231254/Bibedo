@@ -168,6 +168,8 @@ def build(request, **kwargs):
     friend1 = Character.objects.get(name = build.friend1)
     friend2 = Character.objects.get(name = build.friend2)
     friend3 = Character.objects.get(name = build.friend3)
+    set1 = Arts.objects.get(name = build.artiset1)
+    set2 = Arts.objects.get(name = build.artiset2)
     character = Character.objects.get(name = build.cname)
     weapon = Weapon.objects.get(name = build.weapon)
     context = {
@@ -177,6 +179,8 @@ def build(request, **kwargs):
         "friend1": friend1,
         "friend2": friend2,
         "friend3": friend3,
+        "set1": set1,
+        "set2": set2,
     }
     return HttpResponse(template.render(context,request))
    
